@@ -1,6 +1,8 @@
 package com.cluster.midware.service.base;
 
 import com.cluster.midware.service.notify.PostgresNotifyService;
+import com.cluster.midware.service.push.PushMsg2DoctorService;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
@@ -23,7 +25,8 @@ public class ServiceThreadManagerRunner {
      */
     @Autowired
     private PostgresNotifyService postgresNotifyService;
-
+    @Autowired
+    private PushMsg2DoctorService pushMsg2DoctorService;
 
 //
 //    @Autowired
@@ -55,5 +58,6 @@ public class ServiceThreadManagerRunner {
 //            executor.submit(key);
 //        }
         executor.execute(postgresNotifyService);
+        executor.execute(pushMsg2DoctorService);
     }
 }

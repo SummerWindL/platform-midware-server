@@ -67,7 +67,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
         applicationContext = appContext;
 
 //        ServiceBeanConfig.pushConfig = SpringContextHolder.getBean("pushConfig");
-//        ServiceBeanConfig.jsonAdaptor = SpringContextHolder.getBean("jsonAdaptor");
+        ServiceBeanConfig.jsonAdaptor = SpringContextHolder.getBean("jsonAdaptor");
 //        ServiceBeanConfig.baseComponent = SpringContextHolder.getBean("baseComponent");
 
         /**middle repo**/

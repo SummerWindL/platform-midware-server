@@ -1,5 +1,6 @@
 package com.cluster.midware.config;
 
+import com.cluster.midware.common.util.JsonAdaptor;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 @Component
 public class ServiceBeanConfig {
 //    public static  PushConfig pushConfig = null ; //    SpringContextHolder.getBean("pushConfig");
-//    public static  JsonAdaptor jsonAdaptor = null ; //    SpringContextHolder.getBean("jsonAdaptor");
+    public static JsonAdaptor jsonAdaptor = null ; //    SpringContextHolder.getBean("jsonAdaptor");
 //    public static  BaseComponent baseComponent = null ; //    SpringContextHolder.getBean("baseComponent");
 
     /**middle repo**/
