@@ -1,0 +1,53 @@
+
+spring:
+  jpa:
+    show-sql: true
+  activemq:
+    broker-url: tcp://192.168.9.201:61616
+#    broker-url: tcp://172.20.16.235:61616   # 徐小宁在自贡的虚拟机IP
+    user: admin
+    password: admin
+    packages:
+      trust-all: true # 可信任的反序列包
+  datasource:
+#    url: jdbc:postgresql://172.20.16.235:5432/mb_dev_v3.5?stringtype=unspecified&currentSchema=aigw
+    url: jdbc:postgresql://192.168.9.201:5432/mb_dev_v3.5?stringtype=unspecified&currentSchema=aigw
+#    url: jdbc:postgresql://192.168.9.113:5432/sb_5?stringtype=unspecified&currentSchema=aigw
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver #驱动
+    one:
+      max-active: 10
+      max-wait: 10000
+  redis:
+    database: 0
+#    host: 192.168.9.201
+    host: 172.20.16.235
+    port: 6379
+    password: redis
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 20000
+
+middle:   # middle server 专项配置参数
+  server:
+    remindcron: 0 0 0 * * ? #每天零点开始执行消息提醒定时任务 0/1 * * * * ?
+    appointcron: 0 0 0 * * ? #每天零点开始执行预约结案标记更新定时任务 0/1 * * * * ?
+    service-type: producer #producer,consumer
+    mq-type: queue #mqType topic,queue
+    mq-name: middle-server-queue #mqName 自定义名称
+    cmd-no: cmd_40001 #命令号
+    cmd-msg: 你好 #消息
+    sleep-time: 1000
+    id-open-test-mode: false
+    websocket:
+      endpoint: /pushserver/api/v2/zx-websocket/  # Websocket通道地址
+      test-topic-scheduled-fixed-delay: 1000000  # 测试专用，定时广播topic的时间间隔，单位：毫秒
+      websocket-message-broker-stats-period: 30  # 定时打印SpringBoot Websocket Session统计数值，时间间隔，单位：秒
+
+server:   # springboot 内置容器，jetty，专项配置参数
+  port: 8082
