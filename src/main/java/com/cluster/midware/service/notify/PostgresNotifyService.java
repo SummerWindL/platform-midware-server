@@ -4,7 +4,7 @@ import cn.hutool.log.StaticLog;
 import com.cluster.midware.bizservice.biznotify.listener.impl.PostgresNotificationListener;
 import org.springframework.stereotype.Component;
 
-import static com.cluster.midware.common.consts.Constants.POSTGRES_DESTINATION_ALERT_INSPECTION;
+import static com.cluster.midware.common.consts.Constants.POSTGRES_DESTINATION_TEST_INSPECTION;
 
 /**
  * @description: postgre 数据库 notify函数通知 启动监听
@@ -17,7 +17,7 @@ public class PostgresNotifyService implements Runnable{
 
     public long startPostGresNotifyLinstener(){
         StaticLog.info("\n-------- PostgresNotifyService [数据库XXX通知服务] start --------");
-        postgresNotificationListener = new PostgresNotificationListener(POSTGRES_DESTINATION_ALERT_INSPECTION);
+        postgresNotificationListener = new PostgresNotificationListener(POSTGRES_DESTINATION_TEST_INSPECTION);
         if(postgresNotificationListener!=null){
             //1.启动监听目标线程
             postgresNotificationListener.startListener();

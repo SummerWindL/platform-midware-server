@@ -84,6 +84,7 @@ public class Constants {
     public static final int POSTGRES_NOTIFY_SUCCESS = 1;
     public static final int POSTGRES_NOTIFY_FAILURE = 0;
     public static final String POSTGRES_DESTINATION_ALERT_INSPECTION = "alert_notification";
+    public static final String POSTGRES_DESTINATION_TEST_INSPECTION = "test_notification";
     public static final String POSTGRES_DESTINATION_SSINFO_INSPECTION = "ssinfo_notification";
     public static final String POSTGRES_DESTINATION_INSPECTION_INSPECTION = "inspection_notification";
     public static final String POSTGRES_DESTINATION_SF_INSPECTION = "sf_notification";
