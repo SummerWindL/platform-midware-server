@@ -40,3 +40,8 @@ f_pg_notification_model 函数 第一个参数是调用该模块的函数名称 
 ```postgresql
 select * from f_pg_notification_model('test_function','test_notification','{"notifyno":"cmd_4060001", "notifytype" :"insert","notifyparam":{"ssid":"123","hospcode":"123"}}');
 ``` 
+
+
+### 参考
+
+[!Listen / Notify](https://jdbc.postgresql.org/documentation/81/listennotify.html)
